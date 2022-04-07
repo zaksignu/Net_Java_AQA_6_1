@@ -28,9 +28,9 @@ public class DashBoardPage {
     }
 
 
-    public int getCardBalance(int id, Cards card) {
+    public int getCardBalance(int id) {
         String text = cards.get(id).getText();
-        // TODO: перебрать все карты и найти по атрибуту data-test-id
+
         return extractBalance(text);
     }
 
@@ -40,7 +40,9 @@ public class DashBoardPage {
         val value = text.substring(start + balanceStart.length(), finish);
         return Integer.parseInt(value);
     }
-
+//    public VerificationPage() {
+//        codeField.shouldBe(visible);
+//    }
 
     public CashTransfer cardsTransferАFromFirst (DataWizard.Cards card) {
         transferOne.click();
