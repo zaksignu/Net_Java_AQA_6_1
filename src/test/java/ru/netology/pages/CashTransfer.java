@@ -18,6 +18,7 @@ public class CashTransfer {
 
 
    public DashBoardPage transition (int money){
+       inputSumm.setValue("");
        inputSumm.setValue(Integer.toString(money));
        //cardNumbers.click();
     //   cardNumbers.setValue(cardNumber.toString());
