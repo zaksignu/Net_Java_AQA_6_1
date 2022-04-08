@@ -14,11 +14,12 @@ import static com.codeborne.selenide.Selenide.closeWindow;
 import static com.codeborne.selenide.Selenide.open;
 
 public class MoneyTransfer {
+
     static int transferAmount = 1000;
     static int cardOne = 0;
     static int cardTwo = 1;
-    @BeforeAll
 
+    @BeforeAll
     public static void startUp(){open("http://localhost:9999");
         var loginPage = new LoginPage();
         var authInfo = DataWizard.getAuthInfo();
@@ -31,22 +32,19 @@ public class MoneyTransfer {
     public void shouldTransferMoneyFromTwoToOne() {
 
         var dashBoard = new DashBoardPage();
-        int bal1 = dashBoard.getCardBalance(cardOne);
-        int bal2 = dashBoard.getCardBalance(cardTwo);
+
         int expectedOne = dashBoard.getCardBalance(cardOne)+transferAmount;
         int expectedTwo = dashBoard.getCardBalance(cardTwo)-transferAmount;
-        System.out.print("expOne="+expectedOne+" ");
-        System.out.println("expTwo="+expectedTwo);
-        var cashTr = dashBoard.cardsTransferАFromFirst();
+
+        var cashTr = dashBoard.cardsTransferFromFirst();
         var transferFinish = cashTr.transition(transferAmount);
+
 
         int actualOne = transferFinish.getCardBalance(cardOne);
         int actualTwo = transferFinish.getCardBalance(cardTwo);
-        System.out.print("actOne="+actualOne+" ");
-        System.out.println("actTwo="+actualTwo);
+
         Assertions.assertEquals(expectedOne,actualOne);
         Assertions.assertEquals(expectedTwo,actualTwo);
-       // closeWindow();
     }
 
     @Test
@@ -55,24 +53,19 @@ public class MoneyTransfer {
         var dashBoard = new DashBoardPage();
         int bal1 = dashBoard.getCardBalance(cardOne);
         int bal2 = dashBoard.getCardBalance(cardTwo);
+
         int expectedOne = dashBoard.getCardBalance(cardOne)-transferAmount;
         int expectedTwo = dashBoard.getCardBalance(cardTwo)+transferAmount;
-        System.out.print("expOne "+expectedOne+" ");
-        System.out.println("expTwo "+expectedTwo);
-//        System.out.print(expectedOne+" ");
-//        System.out.println(expectedTwo);
-     //   expected = dashBoard.getCardBalance(card)+transferAmount;
-        var cashTr = dashBoard.cardsTransferАFromSecond();
+
+        var cashTr = dashBoard.cardsTransferFromSecond();
         var transferFinish = cashTr.transition(transferAmount);
+
         int actualOne = transferFinish.getCardBalance(cardOne);
         int actualTwo = transferFinish.getCardBalance(cardTwo);
-    //    actual = transferFinish.getCardBalance(card);
-        System.out.print("actOne="+actualOne+" ");
-        System.out.println("actTwo="+actualTwo);
+
         Assertions.assertEquals(expectedOne,actualOne);
         Assertions.assertEquals(expectedTwo,actualTwo);
-    //    Assertions.assertEquals(expected,actual);
-     //   closeWindow();
+
 
     }
 

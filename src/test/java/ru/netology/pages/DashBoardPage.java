@@ -39,16 +39,13 @@ public class DashBoardPage {
         val value = text.substring(start + balanceStart.length(), finish);
         return Integer.parseInt(value);
     }
-//    public VerificationPage() {
-//        codeField.shouldBe(visible);
-//    }
 
-    public CashTransfer cardsTransferАFromFirst () {
+    public CashTransfer cardsTransferFromFirst () {
         transferOne.click();
         return new CashTransfer(DataWizard.getCardsInfo().getSecondCard());
     }
 
-    public CashTransfer cardsTransferАFromSecond () {
+    public CashTransfer cardsTransferFromSecond () {
         transferTwo.click();
         return new CashTransfer(DataWizard.getCardsInfo().getFirstCard());
     }
