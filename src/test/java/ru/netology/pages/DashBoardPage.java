@@ -19,8 +19,9 @@ public class DashBoardPage {
 
     private SelenideElement heading = $("[data-test-id=dashboard]");
 
-    private SelenideElement transferOne = $(cardOne +" [data-test-id=\"action-deposit\"]");
-    private SelenideElement transferTwo = $(cardTwo +" [data-test-id=\"action-deposit\"]");
+    private SelenideElement transferOne = $(cardOne + " [data-test-id=\"action-deposit\"]");
+    private SelenideElement transferTwo = $(cardTwo + " [data-test-id=\"action-deposit\"]");
+
     //
     public DashBoardPage() {
         heading.shouldBe(visible);
@@ -40,12 +41,12 @@ public class DashBoardPage {
         return Integer.parseInt(value);
     }
 
-    public CashTransfer cardsTransferFromFirst () {
+    public CashTransfer cardsTransferFromFirst() {
         transferOne.click();
         return new CashTransfer(DataWizard.getCardsInfo().getSecondCard());
     }
 
-    public CashTransfer cardsTransferFromSecond () {
+    public CashTransfer cardsTransferFromSecond() {
         transferTwo.click();
         return new CashTransfer(DataWizard.getCardsInfo().getFirstCard());
     }

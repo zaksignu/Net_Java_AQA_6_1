@@ -20,7 +20,8 @@ public class MoneyTransfer {
     static int cardTwo = 1;
 
     @BeforeAll
-    public static void startUp(){open("http://localhost:9999");
+    public static void startUp() {
+        open("http://localhost:9999");
         var loginPage = new LoginPage();
         var authInfo = DataWizard.getAuthInfo();
         var verificationPage = loginPage.validLogin(authInfo);
@@ -33,8 +34,8 @@ public class MoneyTransfer {
 
         var dashBoard = new DashBoardPage();
 
-        int expectedOne = dashBoard.getCardBalance(cardOne)+transferAmount;
-        int expectedTwo = dashBoard.getCardBalance(cardTwo)-transferAmount;
+        int expectedOne = dashBoard.getCardBalance(cardOne) + transferAmount;
+        int expectedTwo = dashBoard.getCardBalance(cardTwo) - transferAmount;
 
         var cashTr = dashBoard.cardsTransferFromFirst();
         var transferFinish = cashTr.transition(transferAmount);
@@ -43,8 +44,8 @@ public class MoneyTransfer {
         int actualOne = transferFinish.getCardBalance(cardOne);
         int actualTwo = transferFinish.getCardBalance(cardTwo);
 
-        Assertions.assertEquals(expectedOne,actualOne);
-        Assertions.assertEquals(expectedTwo,actualTwo);
+        Assertions.assertEquals(expectedOne, actualOne);
+        Assertions.assertEquals(expectedTwo, actualTwo);
     }
 
     @Test
@@ -54,8 +55,8 @@ public class MoneyTransfer {
         int bal1 = dashBoard.getCardBalance(cardOne);
         int bal2 = dashBoard.getCardBalance(cardTwo);
 
-        int expectedOne = dashBoard.getCardBalance(cardOne)-transferAmount;
-        int expectedTwo = dashBoard.getCardBalance(cardTwo)+transferAmount;
+        int expectedOne = dashBoard.getCardBalance(cardOne) - transferAmount;
+        int expectedTwo = dashBoard.getCardBalance(cardTwo) + transferAmount;
 
         var cashTr = dashBoard.cardsTransferFromSecond();
         var transferFinish = cashTr.transition(transferAmount);
@@ -63,8 +64,8 @@ public class MoneyTransfer {
         int actualOne = transferFinish.getCardBalance(cardOne);
         int actualTwo = transferFinish.getCardBalance(cardTwo);
 
-        Assertions.assertEquals(expectedOne,actualOne);
-        Assertions.assertEquals(expectedTwo,actualTwo);
+        Assertions.assertEquals(expectedOne, actualOne);
+        Assertions.assertEquals(expectedTwo, actualTwo);
 
 
     }
