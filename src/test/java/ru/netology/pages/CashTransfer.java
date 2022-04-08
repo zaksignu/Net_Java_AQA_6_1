@@ -1,6 +1,7 @@
 package ru.netology.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -18,10 +19,11 @@ public class CashTransfer {
 
 
    public DashBoardPage transition (int money){
-       inputSumm.setValue("");
+       inputSumm.sendKeys(Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE);
        inputSumm.setValue(Integer.toString(money));
        //cardNumbers.click();
     //   cardNumbers.setValue(cardNumber.toString());
+       cardNumbers.sendKeys(Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE,Keys.BACK_SPACE);
        cardNumbers.sendKeys(cardNumber);
        submitButton.click();
       return new DashBoardPage();

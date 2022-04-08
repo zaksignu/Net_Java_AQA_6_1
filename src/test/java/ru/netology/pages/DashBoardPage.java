@@ -3,7 +3,6 @@ package ru.netology.pages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.val;
-import ru.netology.web.Cards;
 import ru.netology.web.DataWizard;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -44,13 +43,13 @@ public class DashBoardPage {
 //        codeField.shouldBe(visible);
 //    }
 
-    public CashTransfer cardsTransferАFromFirst (DataWizard.Cards card) {
+    public CashTransfer cardsTransferАFromFirst () {
         transferOne.click();
-        return new CashTransfer(card.getSecondCard());
+        return new CashTransfer(DataWizard.getCardsInfo().getSecondCard());
     }
 
-    public CashTransfer cardsTransferАFromSecond (DataWizard.Cards card) {
+    public CashTransfer cardsTransferАFromSecond () {
         transferTwo.click();
-        return new CashTransfer(card.getFirstCard());
+        return new CashTransfer(DataWizard.getCardsInfo().getFirstCard());
     }
 }
