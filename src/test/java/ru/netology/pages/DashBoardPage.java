@@ -22,7 +22,6 @@ public class DashBoardPage {
     private SelenideElement transferOne = $(cardOne + " [data-test-id=\"action-deposit\"]");
     private SelenideElement transferTwo = $(cardTwo + " [data-test-id=\"action-deposit\"]");
 
-    //
     public DashBoardPage() {
         heading.shouldBe(visible);
     }
