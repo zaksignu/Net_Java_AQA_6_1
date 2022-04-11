@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class MoneyTransfer {
 
-    static int transferAmount = 10000;
+    static int transferAmount = 1000;
     static int cardOne = 0;
     static int cardTwo = 1;
 
