@@ -19,10 +19,10 @@ public class CashTransfer {
 
     public DashBoardPage transition(int money) {
 
-        inputSumm.sendKeys(Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE);
+        inputSumm.sendKeys(Keys.CONTROL+"a",Keys.BACK_SPACE );
         inputSumm.setValue(Integer.toString(money));
 
-        cardNumbers.sendKeys(Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE);
+        cardNumbers.sendKeys(Keys.CONTROL+"a",Keys.BACK_SPACE );
         cardNumbers.sendKeys(cardNumber);
 
         submitButton.click();
